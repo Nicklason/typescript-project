@@ -7,5 +7,6 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": true,
-    "eslint.validate": ["typescript"]
+    "eslint.validate": ["typescript"],
+    "files.eol": "\n"
 }
