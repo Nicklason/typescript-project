@@ -12,8 +12,7 @@
         "prettier": "prettier --check src/**/*",
         "eslint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
         "pretest": "npm run eslint-check",
-        "prepare": "npm run build",
-        "prepublishOnly": "npm test"
+        "prepare": "npm run build"
     },
     "repository": {
         "type": "git",
