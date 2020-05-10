@@ -105,10 +105,16 @@ typings/
 # .gitignore
 .gitignore
 
-# eslint and prettier
+# development environment
+.vscode/
+.github/
 .eslintignore
 .eslintrc.js
 .prettierrc.js
+.huskyrc.js
+.lintstagedrc.js
+.releaserc.js
+.commitlintrc.js
 
 # tsconfig
 tsconfig.json
