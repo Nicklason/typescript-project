@@ -1,14 +1,8 @@
 # typescript-project
 
-A template for creating TypeScript projects
+Template for creating TypeScript projects with no configuration
 
 This project is made with TypeScript v3.7, NodeJS v13 and NPM v6 but should work with newer versions too.
-
-## Requirements
-
-- TypeScript version 3.7
-- NodeJS version 12
-- NPM version 6
 
 ## Setup
 
