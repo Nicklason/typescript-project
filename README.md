@@ -24,6 +24,8 @@ Make sure that you update the files to match your new project:
 - `package-lock.json` - name (simply update the `package.json` file and run `npm install`)
 - `README.md` - replace with new file
 
+Make sure that the branches the release action triggers on are protected on GitHub. That way in order for any code to get into a release, the code will have to be pass the tests and be approved.
+
 ## Configuration
 
 There is none, that's the whole point of using this as a template.
@@ -57,6 +59,18 @@ Create a commit by staging the files and then running the command `npm run commi
 You can also manually create a commit, just make sure that you are following the commit message convention.
 
 When making a commit you can get a warning. This warning is a result of one of the husky hooks exiting with an error. To see the error, see the output / click on the "Open git log" button.
+
+### Making releases
+
+Releases are made automatically and version changes are determined by commit messages - this is why it is important to use `npm run commit` when making commits.
+
+When new code is pushed to one of the release branches (`master`, `next`, `next-major`, `alpha`, `beta`) then the release action will be triggered and a new version will be made based on the commit messages.
+
+If the release action determines that a new version should be made, then it will update the version inside the `package.json` and `package-lock.json` files and make a new release on GitHub.
+
+This template can be configured to also publish modules with npm.
+
+For more information about automated releases, [see the documentation for semantic-release](https://github.com/semantic-release/semantic-release).
 
 ## Final notes
 

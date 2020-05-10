@@ -7,7 +7,7 @@
     "scripts": {
         "commit": "git-cz",
         "build": "tsc",
-        "test": "npm run lint",
+        "test": "npm run lint & npm run prettier",
         "lint": "eslint src/**/*",
         "prettier": "prettier --check src/**/*",
         "eslint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
