@@ -18,6 +18,12 @@ Once a repository has been made using the template, then clone it locally and op
 
 To use all the style checks and rules, install the development dependencies using `npm install`.
 
+Make sure that you update the files to match your new project:
+
+- `package.json` - name, description and urls
+- `package-lock.json` - name (simply update the `package.json` file and run `npm install`)
+- `README.md` - replace with new file
+
 ## Configuration
 
 There is none, that's the whole point of using this as a template.
