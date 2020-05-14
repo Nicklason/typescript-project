@@ -39,6 +39,7 @@ Make sure that you update the files to match your new project:
 - `package.json` - name, description and urls
 - `package-lock.json` - name (simply update the `package.json` file and run `npm install`)
 - `README.md` - replace with new file
+- `LICENSE.md` - update license
 
 ### Branch protection (optional)
 
