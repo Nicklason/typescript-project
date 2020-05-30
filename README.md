@@ -15,6 +15,7 @@ This project is made with TypeScript v3.7, NodeJS v13 and NPM v6 but should work
     - [Setup as module (optional)](#setup-as-module-optional)
       - [Publish to NPM](#publish-to-npm)
       - [Publish to GitHub Packages](#publish-to-github-packages)
+    - [Installing private dependencies](#installing-private-dependencies)
   - [Configuration](#configuration)
     - [Development environment](#development-environment)
     - [Publish to npm registry (optional)](#publish-to-npm-registry-optional)
@@ -84,6 +85,35 @@ NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 When using GitHub Packages you need to use scoped package names. See [the documentation for publishing a package on GitHub](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#publishing-a-package).
+
+### Installing private dependencies
+
+Say you have a private package which relies on another private package that you have made and published. You need to specify where the private package is located, and you needd to authenticate to the package registry.
+
+If you are publishing to GitHub Packages, then you need to update the workflow files so that when installing dependencies it will authenticate with the registry for your own scope.
+
+```yml
+  uses: actions/setup-node@v1
+  with:
+    node-version: ${{ matrix.node-version }}
+    registry-url: https://npm.pkg.github.com/
+    scope: '@nicklason'
+```
+
+Set `registry-url` to `https://npm.pkg.github.com/`, and `scope` to your own scope, for example mine is `@nicklason`.
+
+You need to have a personal access token that have the scopes `read:packages` and `repo`. Add it to the environment variables for when installing dependencies.
+
+```yml
+- name: Install dependencies
+  run: npm ci
+  env:
+    NODE_AUTH_TOKEN: ${{ secrets.READ_PACKAGES_PAT }}
+```
+
+Add the personal access token to the secrets of the repository with the name `READ_PACKAGES_PAT`.
+
+In the release workflow file you also need to add `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` to the environment variables for the release step.
 
 ## Configuration
 
